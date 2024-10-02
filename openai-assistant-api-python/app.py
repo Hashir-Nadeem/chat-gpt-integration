@@ -186,6 +186,8 @@ def getResponse():
             if message.role == 'assistant':
                 response_content = message.content[0].text.value
                 break
+        print("Token usage: ", runResponse.usage)
+        print("Response: ", response_content)
         jsonData = json.loads(response_content)
         if jsonData['response_type'] == 'string' or jsonData['response_type'] == 'table':
             return jsonData, 200

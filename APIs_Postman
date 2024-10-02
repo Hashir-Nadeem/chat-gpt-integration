@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "1374d1f6-6f6f-477e-b768-b7467d58fe34",
+		"name": "ChatGPT Integration (Hashir)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28654804"
+	},
+	"item": [
+		{
+			"name": "Create a new assistant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/init-assistant",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"init-assistant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new thread",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/init-thread",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"init-thread"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feed data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Abdul/Downloads/AgustFinanceDetail.xlsx"
+						},
+						{
+							"key": "threadId",
+							"value": "thread_QR36sD9AMewWn0e65YwRNrCS",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/feed-data",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"feed-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ask questions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"threadId\":\"thread_QR36sD9AMewWn0e65YwRNrCS\",\r\n    \"assistantId\":\"asst_2d81Dnwh4YvVXHIJmAvmBa6K\",\r\n    \"question\":\"what is the email address for DAVUT ERDOĞDU in the records? Return in excel\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/get-response",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"get-response"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Files in Assistant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/list-files",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"list-files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List messages in a thread",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"threadId\":\"thread_QR36sD9AMewWn0e65YwRNrCS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/list-messages",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"list-messages"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
